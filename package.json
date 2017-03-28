@@ -1,8 +1,8 @@
 {
-  "name": "t",
-  "description": "a vue.js project",
+  "name": "vueapp",
+  "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "01115161@wisedu.com",
+  "author": "Cookie <tsubasa-kun@foxmail.com>",
   "packageName": "vueapp",
   "private": true,
   "scripts": {
@@ -32,7 +32,6 @@
     "vue-loader": "^10.0.0",
     "vue-template-compiler": "^2.1.0",
     "webpack": "^2.1.0-beta.25",
-    "webpack-dev-server": "^2.1.0-beta.9",
-    "jquery": "^3.1.1"
+    "webpack-dev-server": "^2.1.0-beta.9"
   }
 }

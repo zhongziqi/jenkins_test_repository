@@ -11,7 +11,6 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.http.options.credentials = true;
 const router = new VueRouter(route);
-
 let Init = () => {
     new Vue({
             el: '#app',
