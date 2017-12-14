@@ -1,6 +1,6 @@
-# vueapp
+# moist
 
-> A Vue.js project
+> 润物官网
 
 ## Build Setup
 
@@ -15,4 +15,3 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

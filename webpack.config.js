@@ -9,52 +9,39 @@ module.exports = {
     filename: 'build.js'
   },
   module: {
-    rules: [{
-      test: /\.vue$/,
-      loader: 'vue-loader',
-      options: {
-        postcss: [require('postcss-cssnext')({
-          features: {
-            rem: false
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
           }
-        }), require('postcss-pxtorem')({
-          rootValue: 20,
-          propWhiteList: []
-        })]
+          // other vue-loader options go here
+        }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+          publicPath:'./dist/'
+	}
       }
-    }, {
-      test: /\.js$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/
-    }, {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader'
-    }, {
-      test: /\.(png|jpg|gif|svg)$/,
-      loader: 'file-loader',
-      options: {
-        limit: 10000,
-        name: '[name].[ext]?[hash]'
-      }
-    }, {
-      test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-      loader: 'url',
-      query: {
-        limit: 10000,
-        name: '[name].[ext]?[hash]'
-      }
-    }]
+    ]
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.common.js'
+      'vue$': 'vue/dist/vue.esm.js'
     }
   },
   devServer: {
     historyApiFallback: true,
-    noInfo: true,
-    host: 'localhost',
-    port: 8080
+    noInfo: true
   },
   performance: {
     hints: false
@@ -64,7 +51,7 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
-  module.exports.output.publicPath = './dist/';
+  // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
@@ -78,7 +65,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true,
+      minimize: true
     })
   ])
 }

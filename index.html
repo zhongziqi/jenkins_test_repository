@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>vueapp</title>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <script src="./static/mobile/js/utils/computeRootSize.min.js"></script>
-    <link rel="stylesheet" href="./static/mobile/css/bh.min.css">
-    <link rel="stylesheet" href="./static/mobile/css/bh-scenes.min.css">
-    <link rel="stylesheet" href="http://cdnres.campusphere.cn/fe_components/iconfont_mobile/iconfont.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>template</title>
   </head>
-  <body>
-    <div id="app"></div>
-    <script src="dist/build.js"></script>
+  <body style="margin: 0;">
+    <div id="app">
+      <router-view></router-view>
+    </div>
+    <script src="/dist/build.js"></script>
   </body>
 </html>
